@@ -29,7 +29,7 @@ Campagne `RATISS-ETALONS` — RATISS Labs (Yaoundé) — sous licence MIT.
 | E03 trois corps 🪐 | **3/4** | **4/4** |
 | E04 empilement ⚪ | **3/4** | **3/4** — *P4 reste rouge* |
 
-**14 tests sur 16** dans le protocole initial, **15 sur 16** après corrections. Les deux tests qui restent rouges ne sont pas cachés : ils ont chacun leur section dans le rapport.
+**11 tests sur 16** dans le protocole tel qu'écrit, **14 sur 16** après corrections déclarées. Les deux tests qui restent rouges (E01-P2 et E04-P4) ne sont pas cachés : ils ont chacun leur section dans le rapport, avec leur cause mesurée.
 
 Ce que le premier passage a révélé : un bug franc (E01), un témoin non thermalisé (E02), un intégrateur inadapté à une rencontre serrée (E03), et un compresseur qui sous-estime la densité désordonnée 3D (E04).
 

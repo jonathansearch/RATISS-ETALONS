@@ -181,30 +181,33 @@ P1 et P3 sont **mesurés**, pas recopiés : le code construit le réseau, **mesu
 
 ### 5.1 P4 est ROUGE — et le diagnostic vaut mieux que le score
 
-`0.61403 ± 0.00261` contre `0.64 ± 0.020` : **écart 0.026**, hors tolérance. En 2D le même compresseur tombe juste (0.833 contre 0.84). Deux causes possibles — l'instrument ou la taille — et elles se mesurent (`outils/diagnostic_e04.py`) :
+`0.61403 ± 0.00261` contre `0.64 ± 0.020` : **écart 0.026**, hors tolérance. En 2D le même compresseur tombe juste (0.833 contre 0.84). Deux hypothèses ont été testées, pas supposées (`outils/diagnostic_e04.py`, résultats dans `resultats/e04_diagnostic.json`).
 
-**Cause 1 — effet de taille.** La densité de blocage augmente avec `N` :
+**Hypothèse 1 — effet de taille.** La densité de blocage augmente avec `N` :
 
 | N (3D) | 64 | 108 | 144 | 216 |
 |---|---|---|---|---|
-| densité | 0.60308 | 0.61726 | 0.61957 | 0.61219 |
+| densité de blocage | 0.60308 | 0.61726 | 0.61957 | 0.61219 |
 
-La valeur `0.64` de la littérature est établie pour de **grands** systèmes (N ≳ 10⁴) et une compression quasi-statique ; ici `N = 216` et une compression finie. Le compresseur sous-estime, et la tendance mesurée pointe vers le haut sans l'atteindre.
+La valeur `0.64` de la littérature est établie pour de **grands** systèmes (N ≳ 10⁴) et une compression quasi-statique ; le test est ici à `N = 216` avec une compression finie. Le compresseur sous-estime, et la tendance mesurée monte sans atteindre 0.64. **L'hypothèse est cohérente mais non démontrée** — une seule graine par taille, aucune extrapolation.
 
-**Cause 2 — le protocole n'a pas UN résultat, il en a deux.** Le même code, la même dimension, le même taux offrent selon la graine :
+**Hypothèse 2 — l'état atteint.** Le paramètre d'ordre local ψ₆ (liaison hexagonale sur les premiers voisins) tranche sur l'état physique, en 2D, `N = 256`, taux 1.002 :
 
-| 2D, N = 256 | densité | ψ₆ (ordre local) | état |
-|---|---|---|---|
-| graine 4000 | 0.83806 | *(voir JSON)* | *(voir JSON)* |
-| graine 12256 | 0.88596 | *(voir JSON)* | *(voir JSON)* |
+| graine | densité | ψ₆ | coordination moy. | voisins à 6 | état |
+|---|---|---|---|---|---|
+| 4000 | 0.84448 | **0.827** | 5.54 | 62 % | cristal partiel |
+| 12256 | 0.88596 | **0.935** | 5.86 | 87 % | quasi-cristal |
 
-Deux densités, deux états : ~0.83 = **verre** (désordre), ~0.886 = **cristal partiel** (proche de l'hexagonal 0.9069). Ce n'est pas un bug, c'est le comportement connu des milieux granulaires monodisperses : selon la vitesse de compression, le système se fige en verre **ou** nuclée. « RCP 2D = 0.84 » et « RCP 3D = 0.64 » sont donc des valeurs de **protocole**, pas des constantes de la nature.
+**Les deux sont partiellement cristallins.** Aucun des deux n'est un verre. Autrement dit : P2 est **conforme au chiffre** (0.833 contre 0.84 ± 0.015) mais **pas nécessairement conforme à l'état** que la littérature appelle *random* close packing. En 2D monodisperse, les disques cristallisent facilement, et la valeur « RCP 2D = 0.84 » est justement discutée dans la littérature parce que le cristal (0.9069) est tout proche et concurrent.
 
-**Verdict publié : P4 reste ROUGE.** Aucune tolérance n'a bougé, aucune graine n'a été retirée. La prochaine étape est identifiée — plus grand `N` et compression plus lente — mais elle n'est pas faite ici, et la campagne ne prétend pas le contraire.
+**Verdict publié :**
+- **P2 reste conforme** — le critère était un chiffre, le chiffre est atteint (écart 0.00694 pour une tolérance de 0.015).
+- **P4 reste ROUGE** à 0.61403. Aucune tolérance n'a bougé, aucune graine n'a été retirée.
+- La prochaine étape est identifiée (plus grand `N`, compression plus lente, et mesure systématique de ψ₆) — elle **n'est pas faite ici**, et la campagne ne prétend pas le contraire.
 
 > ⚠️ Honnêteté : `0.84` et `0.64` ne sont **pas** des théorèmes. Ce sont des résultats numériques de la littérature, et la densité de blocage **dépend du protocole de compression**. Une valeur entre 0.82 et 0.86 (2D) ou 0.62 et 0.66 (3D) est compatible.
 
-**E04 final : 3/4.** P4 reste rouge, comme P2 de E01.
+**E04 final : 3/4.** P2 vert, P4 rouge — et c'est le diagnostic de P4 qui apprend le plus de toute la campagne.
 
 ## 6. Toutes les corrections de méthode, en une liste
 
@@ -218,6 +221,7 @@ Aucune tolérance n'a bougé. Les six changements ci-dessous sont des réparatio
 | 4 | E02 | témoin à 1 500 balayages | départ ordonné (moussage documenté) | à T=1.0, l'ordre spontané n'est pas atteint à 9 000 balayages |
 | 5 | E03 | RK4 à pas fixe | DOP853 + contrôle de tolérance | la rencontre serrée descend à 4.138e−04 |
 | 6 | E03 | témoin d'éjection à t=40 | t=40 **et** t=60 | l'éjection se produit entre les deux |
+| 7 | E04 | — | *diagnostic, pas correction* | P4 reste rouge : cause mesurée (taille finie + état cristallin), tolérance intacte |
 
 ---
 
@@ -226,7 +230,8 @@ Aucune tolérance n'a bougé. Les six changements ci-dessous sont des réparatio
 **Elle établit :**
 - quatre instruments numériques rejouables qui retrouvent des valeurs publiques connues, dont deux à l'epsilon machine ;
 - que trois d'entre eux étaient faux au premier essai, **et de quelle façon** ;
-- un résultat négatif net : le critère P2 de E01 repose sur une hypothèse fausse, et aucun des trois estimateurs de remplacement ne tient la tolérance à `L ≤ 256` ;
+- deux résultats négatifs nets : le critère P2 de E01 repose sur une hypothèse fausse (aucun estimateur de remplacement ne tient la tolérance à `L ≤ 256`), et le compresseur 3D sous-estime le désordre de 0.026 à `N = 216` ;
+- que nos empilements 2D ne sont **pas** des verres : ψ₆ = 0.827 et 0.935, soit un ordre hexagonal partiel à fort ;
 - que `p_c` de percolation est localisé à 0.0006 près par une méthode, mais qu'un second estimateur indépendant manque encore.
 
 **Elle n'établit pas :**

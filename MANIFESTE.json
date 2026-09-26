@@ -1,0 +1,22 @@
+{
+ "algorithme": "sha256",
+ "fichiers": {
+  ".gitignore": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+  "LICENSE": "8c9138acb256b032908ed002de5902bd1af82ef997cc6819784f3aade785d669",
+  "PROTOCOLE.md": "1b694e122593c1c2ffe2793b511b4eb3cdc55db893b059b88122248051981571",
+  "RAPPORT.md": "4ecd4a3493f23ea5be8ce554d64d344e0257e36612a6adf75351ee25d1a7486d",
+  "README.md": "c63175d903c7dd6422fec707ebfff6a89fde1a456d8b410e2d01135bb7f518e7",
+  "etalons/e01_percolation.py": "bd5a8730189fc6172f60d18f3eefc00c4108ceac67eb1db874c1b5bd9770f075",
+  "etalons/e02_ising.py": "d653e2dc3839c01de09df3b212f6ebeaaa7660c59b3be767c455663f89ab1541",
+  "etalons/e03_trois_corps.py": "d8fbcf60f5ebceffc6f02158e41c6fe18461d9a45792b6404cc598a32ce0f05b",
+  "etalons/e04_empilement.py": "8e6599a823522ff1cb7c576fd84d2106d07bc6e9563ae5b7f05bfe7e93d4e37d",
+  "outils/diagnostic_e04.py": "1e19acfcd0a71cc5da3b8f976bfe70478fdec959446a23219af7517ff196bd0f",
+  "outils/manifeste.py": "a0fee93384270da4659e9cf8136827ae40c0f51ae1833b23c173b0d867f498d7",
+  "outils/ordre_local.py": "432b57a40c86a2c73f826747d197fc725f6d384cb45bf3621b263ab40e2ff80c",
+  "resultats/e01_percolation.json": "c7e5c79783802eb0d129734a2131da343a44a7c90d874e359d2d62a82b840958",
+  "resultats/e02_ising.json": "d7777c9e418ff8e70b20b265cba2920ab7b2a3ffcf95fd2952c421018aa9a1eb",
+  "resultats/e03_trois_corps.json": "a8cd44f2aa6f3b99c7c9e2fd9ab90e798c31efc28daa52aa7cba925f99f9736d",
+  "resultats/e04_diagnostic.json": "b3df16b284cdc29a19945372aa92f072fc1dc02bce438ec5d1131285038faaba",
+  "resultats/e04_empilement.json": "d7847fa596bda89080294fab0a5ac711f784464a1e620004e2973a6186b21802"
+ }
+}

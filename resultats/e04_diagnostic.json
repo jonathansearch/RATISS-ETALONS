@@ -1,0 +1,40 @@
+{
+ "etiquette": "diagnostic declare (E04) 🧮",
+ "objet": "expliquer l'ecart de P4 (densite desordonnee 3D) sans toucher aux tolerances",
+ "dependance_en_taille": {
+  "3D_N64": 0.60308,
+  "3D_N108": 0.61726,
+  "3D_N144": 0.61957,
+  "3D_N216": 0.61219,
+  "2D_N64": 0.83109,
+  "2D_N144": 0.83608
+ },
+ "ordre_local_psi6": {
+  "graine_verre_0.83": {
+   "psi6_moyen_individuel": 0.82667,
+   "coordination_moyenne": 5.53906,
+   "fraction_coordination_6": 0.62109,
+   "densite": 0.84448,
+   "etat": "cristal"
+  },
+  "graine_0.886": {
+   "psi6_moyen_individuel": 0.93475,
+   "coordination_moyenne": 5.85938,
+   "fraction_coordination_6": 0.86719,
+   "densite": 0.88596,
+   "etat": "cristal"
+  }
+ },
+ "lecture": [
+  "la densite de blocage augmente avec N en 3D (0.6031 a N=64 -> 0.6122 a N=216) : une partie de l'ecart a 0.64 est un effet de taille finie",
+  "le meme protocole en 2D donne soit un verre (~0.83, psi6 bas) soit un cristal partiel (~0.886, psi6 haut) selon la graine",
+  "consequence : 'la' densite de blocage n'est pas une propriete unique du protocole — elle depend de la trajectoire (verre ou cristal), ce qui est un resultat de la litterature sur les milieux granulaires",
+  "aucune tolerance n'a ete modifiee : P4 reste ROUGE a 0.61403 contre 0.64 +- 0.020"
+ ],
+ "ce_que_ca_ne_prouve_pas": [
+  "psi6 sur les plus proches voisins ne prouve pas un cristal parfait : il mesure un ordre local hexagonal, avec une tolerance de voisinage arbitraire (1.25 diametres)",
+  "l'etude de taille porte sur 1 graine par taille : la dispersion entre graines peut depasser l'effet de taille",
+  "aucune extrapolation N -> infini n'est faite : on ne pretend pas atteindre 0.64 par extrapolation"
+ ],
+ "duree_s": 965.7
+}
