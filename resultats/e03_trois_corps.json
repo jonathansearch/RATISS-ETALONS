@@ -1,0 +1,174 @@
+{
+ "etiquette": "calcul exact (integration RK4)",
+ "unites": "masse=1 (ou 3-4-5), G=1, 2D, unites arbitraires",
+ "params": {
+  "T_8": 6.32591398,
+  "E0_orbite_8": -1.2871419917663258,
+  "E0_burrau": -12.816666666666666
+ },
+ "P1_detail": {
+  "err_pos_dt1e-4": 1.3065110166206897e-05,
+  "err_pos_dt2e-4": 8.017562720165659e-05,
+  "rapport": 6.13662083072457
+ },
+ "P3_detail": {
+  "lambda": 0.0,
+  "t": 120.0,
+  "d0": 1e-09,
+  "dt": 0.005
+ },
+ "P4_detail": {
+  "table_pas_fixe": {
+   "dt=0.002": {
+    "lambda": 0.28782,
+    "dE_sur_E": 202.27150375504505
+   },
+   "dt=0.001": {
+    "lambda": 14381.0173,
+    "dE_sur_E": 418.88880057878254
+   },
+   "dt=0.0005": {
+    "lambda": 35765.69018,
+    "dE_sur_E": 29329.010047687963
+   },
+   "dt=0.0002": {
+    "lambda": 44124.57755,
+    "dE_sur_E": 2036.275427993366
+   }
+  },
+  "distance_minimale": {
+   "distance_minimale": 0.00041382632477582473,
+   "n_evals_f": 35798,
+   "succes": true
+  },
+  "burrau_rtol1e-10": {
+   "lambda": 0.5497112505820858,
+   "t": 40.0,
+   "rtol": 1e-10,
+   "tau": 1.0,
+   "n_renormalisations": 40,
+   "n_evals_f": 26372
+  },
+  "burrau_rtol1e-12": {
+   "lambda": 0.554022444203635,
+   "t": 40.0,
+   "rtol": 1e-12,
+   "tau": 1.0,
+   "n_renormalisations": 40,
+   "n_evals_f": 36452
+  },
+  "controle_large_quasi_integrable": {
+   "lambda": 0.023081014504791227,
+   "t": 40.0,
+   "rtol": 1e-10,
+   "tau": 1.0,
+   "n_renormalisations": 40,
+   "n_evals_f": 2696
+  },
+  "temoin_ejection": {
+   "t=40": {
+    "energies_par_corps": [
+     -0.0231,
+     -0.3718,
+     -2.683
+    ],
+    "corps_ejectes": [],
+    "distance_max": 4.301
+   },
+   "t=60": {
+    "energies_par_corps": [
+     8.521,
+     -3.2556,
+     -2.4473
+    ],
+    "corps_ejectes": [
+     0
+    ],
+    "distance_max": 2.975
+   }
+  },
+  "corps_echappes_energie_positive_a_t60": [
+   0
+  ]
+ },
+ "verdicts": {
+  "P1_retour_orbite_8": {
+   "err_pos_dt1e-4": 1.3065110166206897e-05,
+   "err_pos_dt2e-4": 8.017562720165659e-05,
+   "rapport_dt_x2": 6.14,
+   "tolerance": 0.001,
+   "conforme": true
+  },
+  "P2_conservation_energie": {
+   "dE_sur_E": 1.2075685856090046e-15,
+   "tolerance": 1e-09,
+   "conforme": true
+  },
+  "P3_lyapunov_orbite_stable": {
+   "lambda": 0.0,
+   "tolerance": 0.02,
+   "conforme": true
+  },
+  "P4_lyapunov_chaos": {
+   "cas": "Burrau (masses 3-4-5, triangle rectangle, repos)",
+   "lambda_rtol1e-10": 0.54971,
+   "lambda_rtol1e-12": 0.55402,
+   "ecart_pct": 0.78,
+   "tolerance_pct": 15.0,
+   "regle_initiale_pas_fixe": "NON CONFORME (artefact d'integrateur, voir table_fixe)",
+   "conforme": true
+  }
+ },
+ "score": "4/4",
+ "verdicts_protocole_initial": {
+  "P1_retour_orbite_8": {
+   "err_pos_dt1e-4": 1.3065110166206897e-05,
+   "err_pos_dt2e-4": 8.017562720165659e-05,
+   "rapport_dt_x2": 6.14,
+   "tolerance": 0.001,
+   "conforme": true
+  },
+  "P2_conservation_energie": {
+   "dE_sur_E": 1.2075685856090046e-15,
+   "tolerance": 1e-09,
+   "conforme": true
+  },
+  "P3_lyapunov_orbite_stable": {
+   "lambda": 0.0,
+   "tolerance": 0.02,
+   "conforme": true
+  },
+  "P4_lyapunov_chaos_pas_fixe": {
+   "table": {
+    "dt=0.002": {
+     "lambda": 0.28782,
+     "dE_sur_E": 202.27150375504505
+    },
+    "dt=0.001": {
+     "lambda": 14381.0173,
+     "dE_sur_E": 418.88880057878254
+    },
+    "dt=0.0005": {
+     "lambda": 35765.69018,
+     "dE_sur_E": 29329.010047687963
+    },
+    "dt=0.0002": {
+     "lambda": 44124.57755,
+     "dE_sur_E": 2036.275427993366
+    }
+   },
+   "distance_minimale": 0.00041382632477582473,
+   "statut": "NON CONFORME : a pas fixe, lambda ne converge pas (dE/E de 2.0e+02 a 2.9e+04)",
+   "conforme": false
+  }
+ },
+ "score_protocole_initial": "3/4",
+ "ce_que_ca_ne_prouve_pas": [
+  "l'orbite en huit est un cas TEST connu : la retrouver valide l'integrateur, pas une physique nouvelle",
+  "le chaos n'a pas de valeur universelle : le lambda mesure est celui de Burrau, pas une constante",
+  "2D seulement : la version 3D du probleme de Burrau n'est pas testee ici",
+  "le passage rapproche de Burrau descend a 4.1e-4 : tout integrateur a pas fixe y est invalide (mesure, pas opinion)",
+  "la substitution pas-fixe -> tolerance DOP853 est une correction de methode declaree, pas un ajustement du critere",
+  "pas de collision reelle traitee (rayon de coeur 1e-12, pas de regularisation)"
+ ]
+}

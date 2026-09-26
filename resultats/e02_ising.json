@@ -1,0 +1,232 @@
+{
+ "etiquette": "calcul exact (Monte-Carlo Metropolis) 🧮",
+ "critere": {
+  "T_c": 2.269185314213022,
+  "beta_sur_nu": 0.125,
+  "gamma_sur_nu": 1.75
+ },
+ "params": {
+  "tailles_binder": [
+   16,
+   32,
+   64
+  ],
+  "tailles_exposants": [
+   8,
+   16,
+   32,
+   64,
+   128
+  ],
+  "n_graines": 6,
+  "grille_T": [
+   2.1,
+   2.44,
+   0.02
+  ],
+  "algorithme": "Metropolis sur sous-reseaux (damier), J=1, k_B=1, periodique"
+ },
+ "P1_detail": {
+  "T": [
+   2.1,
+   2.12,
+   2.14,
+   2.16,
+   2.18,
+   2.2,
+   2.22,
+   2.24,
+   2.26,
+   2.28,
+   2.3,
+   2.32,
+   2.34,
+   2.36,
+   2.38,
+   2.4,
+   2.42,
+   2.44
+  ],
+  "u4": {
+   "16": [
+    0.655216,
+    0.655256,
+    0.650212,
+    0.650035,
+    0.642439,
+    0.627595,
+    0.635453,
+    0.616569,
+    0.609437,
+    0.607451,
+    0.586772,
+    0.570911,
+    0.578928,
+    0.548798,
+    0.547473,
+    0.48567,
+    0.481837,
+    0.441935
+   ],
+   "32": [
+    0.66393,
+    0.663556,
+    0.659108,
+    0.660001,
+    0.658438,
+    0.631439,
+    0.651,
+    0.641248,
+    0.606812,
+    0.585752,
+    0.597813,
+    0.535977,
+    0.443431,
+    0.441912,
+    0.376989,
+    0.299168,
+    0.26267,
+    0.284126
+   ],
+   "64": [
+    0.665905,
+    0.665682,
+    0.665386,
+    0.663717,
+    0.663028,
+    0.662722,
+    0.654173,
+    0.649988,
+    0.625994,
+    0.519572,
+    0.397385,
+    0.312219,
+    0.27233,
+    0.328125,
+    0.147539,
+    0.121535,
+    0.029533,
+    0.003022
+   ]
+  }
+ },
+ "P2_P3_detail": {
+  "m_par_L": {
+   "8": 0.7811067708333334,
+   "16": 0.7101529947916666,
+   "32": 0.6438169759114584,
+   "64": 0.5960285034179688,
+   "128": 0.5343032786051433
+  },
+  "chi_par_L": {
+   "8": 1.1471454871507973,
+   "16": 4.36234534978395,
+   "32": 14.818775267175063,
+   "64": 39.16181895833359,
+   "128": 167.1238465081431
+  },
+  "pente_m": -0.13485,
+  "pente_chi": 1.75397,
+  "pente_m_restreint_L16_128": -0.13427,
+  "pente_chi_restreint_L16_128": 1.7181
+ },
+ "P4_detail": {
+  "1.0": {
+   "m_aléatoire_1500": 0.18791279296875,
+   "e_aléatoire_1500": -1.917658984375,
+   "m_aléatoire_9000": 0.8274197265625,
+   "e_aléatoire_9000": -1.9707216796875,
+   "m_aléatoire_30000": 0.99927919921875,
+   "m_depart_ordonne_2000": 0.99928076171875,
+   "e_depart_ordonne_2000": -1.997184765625
+  },
+  "3.5": {
+   "m_aléatoire_1500": 0.03054697265625,
+   "e_aléatoire_1500": -0.659863671875,
+   "m_aléatoire_9000": 0.030853515625,
+   "e_aléatoire_9000": -0.66039609375
+  }
+ },
+ "verdicts": {
+  "P1_temperature_critique": {
+   "croisement_16_32": 2.2581,
+   "croisement_32_64": 2.2645,
+   "retenu": 2.2613,
+   "attendu": 2.269185,
+   "ecart": 0.0079,
+   "tolerance": 0.03,
+   "conforme": true
+  },
+  "P2_beta_sur_nu": {
+   "mesure": 0.1348,
+   "attendu": 0.125,
+   "ecart": 0.0098,
+   "tolerance": 0.03,
+   "conforme": true
+  },
+  "P3_gamma_sur_nu": {
+   "mesure": 1.754,
+   "attendu": 1.75,
+   "ecart": 0.004,
+   "tolerance": 0.2,
+   "conforme": true
+  },
+  "P4_temoins": {
+   "T=1.0_m_depart_ordonne_2000": 0.99928,
+   "T=1.0_e_depart_ordonne_2000": -1.99718,
+   "T=1.0_e_exact_onsager": -1.9985,
+   "T=1.0_m_aléatoire_1500": 0.18791,
+   "T=1.0_m_aléatoire_9000": 0.82742,
+   "T=1.0_m_aléatoire_30000": 0.99928,
+   "ecart_1.0": 0.00072,
+   "tolerance_1.0": 0.1,
+   "T=3.5_m": 0.03085,
+   "ecart_3.5": 0.03085,
+   "tolerance_3.5": 0.05,
+   "note_moussage": "depuis un etat aleatoire a T=1.0, l'ordre spontane n'est pas atteint a 9000 balayages (m=0.83) : c'est un temps de moussage, pas un desaccord thermodynamique ; les trois valeurs sont publiees",
+   "conforme": true
+  }
+ },
+ "score": "4/4",
+ "verdicts_protocole_initial": {
+  "P1_temperature_critique": {
+   "croisement_16_32": 2.2581,
+   "croisement_32_64": 2.2645,
+   "retenu": 2.2613,
+   "attendu": 2.269185,
+   "ecart": 0.0079,
+   "tolerance": 0.03,
+   "conforme": true
+  },
+  "P2_beta_sur_nu": {
+   "mesure": 0.1348,
+   "attendu": 0.125,
+   "ecart": 0.0098,
+   "tolerance": 0.03,
+   "conforme": true
+  },
+  "P3_gamma_sur_nu": {
+   "mesure": 1.754,
+   "attendu": 1.75,
+   "ecart": 0.004,
+   "tolerance": 0.2,
+   "conforme": true
+  },
+  "P4_temoins_protocole_initial": {
+   "T=1.0_m_aléatoire_1500": 0.18791,
+   "ecart_1.0": 0.81209,
+   "tolerance_1.0": 0.1,
+   "T=3.5_m_aléatoire_1500": 0.03055,
+   "statut": "NON CONFORME a 1500 balayages : le moussage de domaines n'est pas termine a T=1.0",
+   "conforme": false
+  }
+ },
+ "score_protocole_initial": "3/4",
+ "ce_que_ca_ne_prouve_pas": [
+  "les exposants mesures sont des ajustements en loi d'echelle a taille finie : ils ne 'prouvent' pas Onsager, ils sont compatibles avec lui",
+  "aucune correction de taille finie (L^(-omega)) n'est appliquee : l'ecart residuel de P2 en vient",
+  "Monte-Carlo Metropolis n'est pas un calcul exact : chaque valeur porte un bruit statistique non quantifie ici par une barre d'erreur",
+  "le temoin T=1.0 exige 9000 balayages depuis un etat aleatoire (moussage de domaines) : 1500 n'y suffisent pas, la valeur initiale est publiee",
+  "le modele est le reseau carre a couplage uniforme : pas de champ, pas de desordre, pas de 3D"
+ ]
+}

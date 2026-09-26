@@ -1,0 +1,92 @@
+{
+ "etiquette": "calcul exact (geometrie + compression) 🧮",
+ "critere": {
+  "hex_2d": 0.9068996821171089,
+  "fcc_3d": 0.7404804896930609,
+  "rcp_2d": 0.84,
+  "rcp_3d": 0.64
+ },
+ "params": {
+  "taux_gonflement": 1.001,
+  "tol_chevauchement": 0.0001,
+  "n_2d": 256,
+  "n_3d": 216,
+  "graines_2d": 3,
+  "graines_3d": 3,
+  "taux_2d": 1.001,
+  "taux_3d": 1.002,
+  "densite_depart": 0.4,
+  "methode": "inflate-and-relax + bisection du rayon de blocage, boite periodique"
+ },
+ "P1_detail": {
+  "densite": 0.9068996821171089,
+  "distance_min_mesuree": 1.0,
+  "aire_boite": 498.8306325798366,
+  "n_particules": 576,
+  "aire_par_particule": 0.8660254037844386
+ },
+ "P3_detail": {
+  "densite": 0.7404804896930605,
+  "distance_min_mesuree": 0.23570226039551578,
+  "volume_boite": 1.0,
+  "n_particules": 108,
+  "volume_par_particule": 0.009259259259259259
+ },
+ "P2_detail": {
+  "densites": [
+   0.83806,
+   0.83139,
+   0.82973
+  ],
+  "moyenne": 0.83306,
+  "ecart_type": 0.0036
+ },
+ "P4_detail": {
+  "densites": [
+   0.61219,
+   0.61772,
+   0.61219
+  ],
+  "moyenne": 0.61403,
+  "ecart_type": 0.00261
+ },
+ "verdicts": {
+  "P1_hexagonal_2D": {
+   "mesure": 0.9068996821171089,
+   "attendu": 0.9068996821171089,
+   "ecart": 0.0,
+   "tolerance": 1e-12,
+   "conforme": true
+  },
+  "P2_desordre_2D": {
+   "mesure": 0.83306,
+   "ecart_type": 0.0036,
+   "attendu": 0.84,
+   "ecart": 0.00694,
+   "tolerance": 0.015,
+   "conforme": true
+  },
+  "P3_FCC_3D": {
+   "mesure": 0.7404804896930605,
+   "attendu": 0.7404804896930609,
+   "ecart": 4.440892098500626e-16,
+   "tolerance": 1e-12,
+   "conforme": true
+  },
+  "P4_desordre_3D": {
+   "mesure": 0.61403,
+   "ecart_type": 0.00261,
+   "attendu": 0.64,
+   "ecart": 0.02597,
+   "tolerance": 0.02,
+   "conforme": false
+  }
+ },
+ "score": "3/4",
+ "ce_que_ca_ne_prouve_pas": [
+  "0.84 et 0.64 sont des resultats numeriques de la litterature, pas des theoremes : une valeur proche est compatible, pas demontree",
+  "la densite de blocage depend du protocole (vitesse de compression) : un autre protocole peut cristalliser vers 0.9069 en 2D",
+  "disques/sphères parfaitement monodisperses, sans frottement, sans gravite : aucun lien avec un materiau reel",
+  "le rayon de blocage est bissecte sur une configuration gelee : d'autres configurations gelees existent"
+ ]
+}
