@@ -63,6 +63,36 @@ Un étalon, c'est un problème dont la réponse est déjà connue par la science
 | Hexagonal 2D | 0.906899682117109 | 0.906899682117109 | **0.00e+00** |
 | FCC 3D | 0.740480489693 | 0.740480489693060 | 4.44e−16 — *epsilon machine* |
 
+## 📈 Les figures — tracées depuis les JSON scellés
+
+R7 appliqué au pixel : **aucune image décorative**. Chaque courbe vient d'un fichier de `resultats/` (scellés par le manifeste), et tout se régénère par une commande :
+
+```bash
+python3 outils/figures.py    # → assets/fig_*.png (numpy + scipy + matplotlib)
+```
+
+<div align="center">
+
+**E01 — un bug franc, une hypothèse fausse, publiés tels quels**
+
+<img src="assets/fig_e01_percolation.png" width="100%" alt="E01 percolation : transition traversante, h(p) monotone, M_max ~ L^d_f">
+
+**E02 — la classe d'universalité d'Onsager retrouvée**
+
+<img src="assets/fig_e02_ising.png" width="100%" alt="E02 Ising 2D : croisement de Binder, chi ~ L^(gamma/nu)">
+
+**E03 — l'intégrateur prenait le chaos en défaut**
+
+<img src="assets/fig_e03_trois_corps.png" width="100%" alt="E03 trois corps : orbite en huit, Lyapunov pas fixe vs DOP853">
+
+**E04 — P4 reste rouge, le diagnostic d'abord**
+
+<img src="assets/fig_e04_empilement.png" width="100%" alt="E04 empilement : dépendance en taille N, ordre local psi6">
+
+</div>
+
+Précision honnête, inscrite dans le script : sur la figure E03, la **trajectoire** de l'orbite en huit est réintégrée à la volée avec les conditions initiales du dépôt (DOP853, rtol 1e-12 — erreur de retour 5.03e-08) ; les **verdicts**, eux, restent ceux du JSON scellé. C'est la seule valeur recalculée de toutes les figures.
+
 ## 🔴 Les deux tests rouges — assumés
 
 ### E01-P2 · c'est l'hypothèse qui était fausse, pas l'instrument
